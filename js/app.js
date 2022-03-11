@@ -12,12 +12,12 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
-  console.log(id)
   return likedPostsId?.length && !!likedPostsId.includes(id);
-};
 
+};
+console.log(likedPostsId)
 const addToLiked = (id) => {
-  likedPostsId.plus(id);
+  likedPostsId.push(id);
   showPosts(posts);
 };
 
@@ -97,7 +97,7 @@ const createPost = (post) => {
                   </button>
                 </div>
 
-                <div class="post__content">${displayContent(post.description)}
+               <div class="post__content">${displayContent(post.description)}
                 </div>
 
                 <div class="post__infos">
@@ -116,8 +116,8 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
-                         
+                      ${post.comments?.user}
+                        
                       </a>
                       ${post.comments?.text}
                     </small>
@@ -137,6 +137,7 @@ const showPosts = (posts) => {
   posts.forEach((post) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
+
   });
 };
 
